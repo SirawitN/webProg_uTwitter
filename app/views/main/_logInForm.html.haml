@@ -1,0 +1,27 @@
+= form_with(model: user) do |form|
+  / #specify the model to be used
+
+  .field
+    .row
+      .col-auto
+        = form.label :email
+      .col-auto
+        = form.text_field :email
+  
+  %br
+
+  .field
+    .row
+      .col-auto
+        = form.label :password
+      .col-auto
+        = form.password_field :password
+
+  .form-actions
+    = form.button :LogIn, class: "btn btn-primary mt-2"
+
+
+
+
+
+ 

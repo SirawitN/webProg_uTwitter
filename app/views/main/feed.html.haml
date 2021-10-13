@@ -1,0 +1,27 @@
+
+- flash.each do |type, msg|
+	%div.alert.alert-warning.alert-dismissible.fade.show
+		%p= msg
+		%button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "alert", :type => "button"}
+
+= button_to "Post", create_post_path, class: 'btn btn-primary mt-2'
+%br
+
+- if @user.feedPosts.any?
+	.container
+		- @user.feedPosts.each do |post|
+			.row
+				%p
+					%b Name:
+					= post.user.name
+			.row
+				%p
+					%b Time:
+					= post.created_at
+			.row
+				%p
+					%b Time:
+					= post.msg
+			%br
+
+%br

@@ -1,0 +1,11 @@
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+  .container-fluid
+    %a.navbar-brand uTwitter
+    %button.navbar-toggler{"aria-controls" => "navbarNavAltMarkup", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarNavAltMarkup", "data-bs-toggle" => "collapse", :type => "button"}
+      %span.navbar-toggler-icon
+    
+    #navbarNavAltMarkup.collapse.navbar-collapse
+      .navbar-nav
+        %a.nav-link{"aria-current" => "page", :href => main_path} Home
+        %a.nav-link{:href => profile_path(@currentUser.name)} Profile
+        %a.nav-link{:href => users_url} Friends

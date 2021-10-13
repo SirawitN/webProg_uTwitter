@@ -1,0 +1,11 @@
+%h1 uTwitter
+
+- flash.each do |type, msg|
+	%div.alert.alert-danger.alert-dismissible.fade.show
+		%p= msg
+		%button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "alert", :type => "button"}
+
+%br
+= render 'logInForm', user: @user
+
+= button_to "Register", register_path, method: :get, class: "btn btn-primary btn-group mt-2"
