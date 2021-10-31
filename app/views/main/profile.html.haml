@@ -15,20 +15,8 @@
 %br
 
 - if @user.posts.any?
-  .container
-    - @user.posts.each do |post|
-      .row
-        %p
-          %b Name:
-          = @user.name
-      .row
-        %p
-          %b Time:
-          = post.created_at
-      .row
-        %p
-          %b Message:
-          = post.msg
-      %br
-        
-%br
+  - @user.posts.each do |post|
+    = render 'postContainer', post: post
+
+= render 'likeModal'
+

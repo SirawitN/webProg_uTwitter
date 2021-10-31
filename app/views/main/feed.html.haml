@@ -8,20 +8,7 @@
 %br
 
 - if @user.feedPosts.any?
-	.container
-		- @user.feedPosts.each do |post|
-			.row
-				%p
-					%b Name:
-					= post.user.name
-			.row
-				%p
-					%b Time:
-					= post.created_at
-			.row
-				%p
-					%b Time:
-					= post.msg
-			%br
+	- @user.feedPosts.each do |post|
+		= render 'postContainer', post: post
 
-%br
+= render 'likeModal'

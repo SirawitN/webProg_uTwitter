@@ -1,0 +1,8 @@
+.modal.fade{"id" => "likesModal", "aria-hidden" => "true", "aria-labelledby" => "staticBackdropLabel", "data-bs-backdrop" => "static", "data-bs-keyboard" => "false", :tabindex => "-1"}
+	.modal-dialog.modal-dialog-centered.modal-dialog-scrollable
+		.modal-content
+			.modal-header
+				%h5 People who like this post
+				%button.btn-close{"data-bs-dismiss": "modal", "aria-label": "Close"}
+			.modal-body
+				%ul#likeitems

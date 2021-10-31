@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :follows
-  resources :posts
+
+  resources :posts do
+    resources :likes
+  end
+
   resources :users
 
   post '/profile/:id/follow', to: "users#follow", as: "follow_user"
@@ -17,7 +21,6 @@ Rails.application.routes.draw do
   post '/feed/:id/new_post', to: 'posts#new', as: 'create_post'
 
   get '/profile/:name', to: 'main#profile', as: "profile"
-
 
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
