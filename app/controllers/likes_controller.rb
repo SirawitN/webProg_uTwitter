@@ -20,11 +20,6 @@ class LikesController < ApplicationController
   	end
 
 
-  	def already_liked
-  		return Like.where(user_id: @currentUser.id, post_id: @post.id).exists?
-  	end
-
-
   	private
 
     def find_post
@@ -34,4 +29,8 @@ class LikesController < ApplicationController
     def find_like
      	@like = @post.likes.find_by(user_id: @currentUser.id)
     end
+
+    def already_liked
+  		return Like.where(user_id: @currentUser.id, post_id: @post.id).exists?
+  	end
 end

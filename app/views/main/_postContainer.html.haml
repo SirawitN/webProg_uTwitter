@@ -1,29 +1,28 @@
 - aPost = post
-.container
-	.row
+%div.d-flex.flex-column.mx-auto.pContainer
+	%div
 		%p
 			%b Name:
 			%a{"href": profile_path(aPost.user.name), "style": "text-decoration: none; color: black;"} #{aPost.user.name}
-	.row
+	%div
 		%p
 			%b Time:
 			= aPost.created_at
-	.row
+	%div
 		%p
 			%b Message:
 			= aPost.msg
-	.row
+	%div
 		- likes = aPost.likes
-		- users = User.where(id: likes.pluck(:user_id)).pluck(:name).join(',')
+		- users = User.where(id: likes.pluck(:user_id)).pluck(:name).join(',')  
 
-		%a{class: "likeList", "data-bs-toggle" => "modal", "data-bs-target" => "#likesModal", "href"=> "#", "likes-data": users, "style": "text-decoration: none; color: grey"} #{likes.count} #{(likes.count) <= 1 ? 'Like':'Likes'}
+		%a{class: "likeList", "data-bs-toggle" => "modal", "data-bs-target" => "#likesModal", "href"=> "#", "likes-data": users, "style": "text-decoration: none; color: grey"} #{likes.count} #{(likes.count) <= 1 ? 'Like':'Likes'}  
 
-	.row
+	%div.mb-3
 		- if aPost.is_already_liked(@currentUser.id)
 			= button_to "Unlike", post_like_path(aPost, @currentUser.id) ,method: :delete, class: " btn btn-info ", id: "post#{post.id}_unlike "
 		- else
 			= button_to "Like", post_likes_path(aPost) ,method: :post, class: "btn btn-info", id: "post#{post.id}_like "
-	%br
 
 					
 

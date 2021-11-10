@@ -1,16 +1,18 @@
-%p
-  %b Name:
-  = @user.name
-%p
-  %b Email:
-  = @user.email
-
-- if @user.id==@currentUser.id
-  = button_to "Logout", logout_path(@user), method: :get, class: "btn btn-info"
-- elsif @currentUser.followees.include?(@user)
-  = button_to "Unfollow", unfollow_user_path(@user), method: :post, class: "btn btn-info"
-- else
-  = button_to "Follow", follow_user_path(@user), method: :post, class: "btn btn-info"
+%div
+  %span
+    %p
+      %b Name:
+      = @user.name
+    %p
+      %b Email:
+      = @user.email
+      %span.justify-content-end
+        - if @user.id==@currentUser.id
+          = button_to "Logout", logout_path(@user), method: :get, class: "btn btn-info position-relative top-0 end-0"
+        - elsif @currentUser.followees.include?(@user)
+          = button_to "Unfollow", unfollow_user_path(@user), method: :post, class: "btn btn-info"
+        - else
+          = button_to "Follow", follow_user_path(@user), method: :post, class: "btn btn-info"
 
 %br
 

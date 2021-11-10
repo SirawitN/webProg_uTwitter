@@ -4,7 +4,7 @@
 		%p= msg
 		%button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "alert", :type => "button"}
 
-= button_to "Post", create_post_path, class: 'btn btn-primary mt-2'
+= button_to "Post", create_post_path, class: 'btn btn-primary mt-2 '
 %br
 
 - if @user.feedPosts.any?
